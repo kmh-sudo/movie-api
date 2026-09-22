@@ -1,14 +1,10 @@
-
 require("dotenv").config();
-const express = require("express");
-const app = express();
+const app = require("./app");
+const connectDB = require("./config/database");
+const PORT = process.env.PORT || 5000;
 
-app.get("/", (req, res) => {
-    res.send("Hello, World!");
+connectDB();
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
-
-app.listen(process.env.PORT, () => {
-    console.log(`Server is running on port ${process.env.PORT}`);
-});
-
-module.exports = app;
