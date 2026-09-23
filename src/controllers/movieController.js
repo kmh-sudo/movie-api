@@ -27,3 +27,21 @@ exports.getMovieById = async (req, res, next) => {
   }
 }
 
+exports.update = async (req, res, next) => {
+  try {
+    const movie = await service.updateMovie(req.params.id, req.body);
+    res.status(200).json({ success: true, data: movie });
+  } catch (error) {
+    next(error);
+  }
+}
+
+
+exports.delete = async (req, res, next) => {
+  try {
+    const movie = await service.deleteMovie(req.params.id);
+    res.status(200).json({ success: true, data: movie });
+  } catch (error) {
+    next(error);
+  }
+}

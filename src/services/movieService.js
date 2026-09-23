@@ -17,9 +17,24 @@ exports.create = async ({ name, url }) => {
     return movie;
 }
 
-
 exports.getMovie = async () => {
     const movie = await repo.findAll();
+    if (!movie) {
+        throw new ApiError(404, "Movie not found");
+    }
+    return movie;
+}
+
+exports.updateMovie = async (id, { name, url }) => {
+    const movie = await repo.update(id, { name, url });
+    if (!movie) {
+        throw new ApiError(404, "Movie not found");
+    }
+    return movie;
+}
+
+exports.deleteMovie = async (id) => {
+    const movie = await repo.delete(id);
     if (!movie) {
         throw new ApiError(404, "Movie not found");
     }
