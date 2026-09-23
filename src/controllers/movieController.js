@@ -17,3 +17,13 @@ exports.getMovie = async (req, res, next) => {
       next(error);  
   }
 }
+
+exports.getMovieById = async (req, res, next) => {
+  try {
+    const movie = await service.getById(req.params.id);
+    res.status(200).json({ success: true, data: movie });
+  } catch (error) {
+    next(error);
+  }
+}
+

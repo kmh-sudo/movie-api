@@ -3,4 +3,4 @@ const movieRoute = require("./movieRoute");
 
 router.use("/movie", movieRoute);
 
-module.exports = router;
+module.exports = router;    
