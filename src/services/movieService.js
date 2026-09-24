@@ -9,11 +9,11 @@ exports.getById = async (id) => {
     return movie;
 }
 
-exports.create = async ({ name, url }) => {
+exports.create = async ({ name, tmdbId, url }) => {
     if (!url.startsWith("http")) {
         throw new ApiError(400, "URL must start with 'https://'");
     }
-    const movie = await repo.create({ name, url });
+    const movie = await repo.create({ name, tmdbId, url });
     return movie;
 }
 
@@ -25,8 +25,8 @@ exports.getMovie = async () => {
     return movie;
 }
 
-exports.updateMovie = async (id, { name, url }) => {
-    const movie = await repo.update(id, { name, url });
+exports.updateMovie = async (id, { name, tmdbId, url }) => {
+    const movie = await repo.update(id, { name, tmdbId, url });
     if (!movie) {
         throw new ApiError(404, "Movie not found");
     }
