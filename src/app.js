@@ -1,8 +1,10 @@
-const express = require("express");
+import express from "express";
+import routes from "./routes/index.js";
+import  errorHandler  from "./middlewares/errorHadler.js";
 const app = express();
 
 
 app.use(express.json());
-app.use("/api", require("./routes/index"));   
-app.use(require("./middlewares/errorHadler").errorHandler);
-module.exports = app;
+app.use("/api", routes);   
+app.use(errorHandler);
+export default app;

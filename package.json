@@ -2,14 +2,15 @@
   "name": "movie-api",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+"test": "vitest",
+    "test:run": "vitest run",
     "dev": "nodemon src/server.js",
     "start": "nodemon src/server.js"
   },
   "keywords": [],
-  "type": "commonjs",
   "dependencies": {
     "cors": "^2.8.6",
     "dotenv": "^18.0.1",
@@ -17,6 +18,10 @@
     "express-validator": "^7.3.2",
     "mongodb": "^7.6.0",
     "mongoose": "^9.10.1",
-    "nodemon": "^3.1.14"
+    "nodemon": "^3.1.14",
+    "telegraf": "^4.16.3"
+  },
+  "devDependencies": {
+    "vitest": "^5.0.3"
   }
 }

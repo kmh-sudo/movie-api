@@ -1,11 +1,18 @@
-const Movie = require("../models/movieScheme");
+import Movie from '../models/movieScheme.js';
 
-exports.findAll = () => Movie.find().sort({ createdAt: -1 });
+const movieRepository = {
+  findAll: () => Movie.find().sort({ createdAt: -1 }),
 
-exports.findById = (id) => Movie.findById(id);
+  findById: (id) => Movie.findById(id),
 
-exports.create = (movie) => Movie.create(movie);
+  create: (movie) => Movie.create(movie),
 
-exports.update = (id, movie) => Movie.findByIdAndUpdate(id, movie, { new: true , runValidators: true });
+  update: (id, movie) =>
+    Movie.findByIdAndUpdate(id, movie, { new: true, runValidators: true }),
 
-exports.delete = (id) => Movie.findByIdAndDelete(id);
+  deleteById: (id) => Movie.findByIdAndDelete(id),
+
+  count: () => Movie.countDocuments(),
+};
+
+export default movieRepository;   // ⬅️ default export

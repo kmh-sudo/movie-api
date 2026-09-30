@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from 'mongoose';
 
 const movieSchema = new mongoose.Schema({
     name:{
@@ -10,7 +10,7 @@ const movieSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please enter the tmdbId of the movie"],
     },
-    url:{
+    fileId:{
         type: String,
         required: [true, "Please enter the url of the movie"],
     }
@@ -20,4 +20,5 @@ const movieSchema = new mongoose.Schema({
     },
 );
 
-module.exports = mongoose.model("Movie", movieSchema);
+const Movie = mongoose.model('Movie', movieSchema);
+export default Movie;
