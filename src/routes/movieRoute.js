@@ -9,7 +9,7 @@ router
   .post(movieController.create);
 
 router.route('/watch').post(movieController.watchMovie);
-router.route('/watch-request').post(movieController.requestWatch);
+router.route('/watch-request/:movieId').post(movieController.requestWatch);
 
 router
   .route('/:id')

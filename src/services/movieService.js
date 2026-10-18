@@ -40,6 +40,7 @@ export const deleteMovie = async (id) => {
   return movie;
 };
 
+  
 // ═══════════════════════════════════════════
 // User ဆီ ဇာတ်ကားပို့ခြင်း
 // ═══════════════════════════════════════════
@@ -54,12 +55,10 @@ export const sendMovieToUser = async ({ telegramId, movieId }) => {
     throw new ApiError(404, 'Movie မရှိပါ');
   }
 
-  // ⬇️⬇️⬇️ ဒါ ထည့် ⬇️⬇️⬇️
   console.log('🔍 DEBUG:');
   console.log('   telegramId:', telegramId);
   console.log('   movieName:', movie.name);
   console.log('   fileId:', movie.fileId?.substring(0, 30) + '...');
-  // ⬆️⬆️⬆️
 
   try {
     await sendMovie(telegramId, movie.fileId, movie.name);

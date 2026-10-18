@@ -126,4 +126,4 @@ const movieController = {
   requestWatch
 };
 
-export default movieController;
+export default movieController; 
